@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostPilot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:ital,wght@0,400;0,700;1,400;1,700&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Decorative SVGs -->
+    <svg class="decor-svg decor-tr" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10,90 Q30,10 90,10 M20,85 Q50,20 85,20" stroke="#e8420a" stroke-width="2" fill="none" opacity="0.4"/>
+        <path d="M15,95 Q40,30 95,30 M5,80 Q25,50 80,45" stroke="#1a2744" stroke-width="2" fill="none" opacity="0.4"/>
+    </svg>
+    <svg class="decor-svg decor-bl" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M90,10 Q70,90 10,90 M80,15 Q50,80 15,80" stroke="#1a2744" stroke-width="2" fill="none" opacity="0.4"/>
+        <path d="M85,5 Q60,70 5,70 M95,20 Q75,50 20,55" stroke="#e8420a" stroke-width="2" fill="none" opacity="0.4"/>
+    </svg>
+
+    <!-- Background blurred blobs -->
+    <div class="blob blob-orange"></div>
+    <div class="blob blob-navy"></div>
+
+    <div class="container">
+        <header>
+            <h1 class="title">Post<span class="orange">Pilot</span></h1>
+            <svg class="title-underline" viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,10 Q50,0 100,10 T200,10" stroke="#e8420a" stroke-width="3" fill="none"/>
+            </svg>
+            <p class="subtitle">fill it in. get ideas. go post.</p>
+        </header>
+
+        <main>
+            <div class="card form-card">
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label for="platform">Platform</label>
+                        <select id="platform">
+                            <option value="LinkedIn">LinkedIn</option>
+                            <option value="Twitter/X">Twitter/X</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="TikTok">TikTok</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="goal">Goal</label>
+                        <select id="goal">
+                            <option value="Educate">Educate</option>
+                            <option value="Inspire">Inspire</option>
+                            <option value="Entertain">Entertain</option>
+                            <option value="Convert">Convert</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group full-width">
+                        <label for="niche">Niche</label>
+                        <input type="text" id="niche" placeholder="e.g. B2B SaaS, Fitness coaching">
+                    </div>
+
+                    <div class="input-group full-width">
+                        <label for="audience">Target Audience</label>
+                        <input type="text" id="audience" placeholder="e.g. Early-stage founders">
+                    </div>
+
+                    <div class="input-group full-width">
+                        <label for="user-vibe">Your vibe in 3 words</label>
+                        <input type="text" id="user-vibe" placeholder="e.g. raw, funny, no-fluff">
+                    </div>
+                </div>
+
+                <div class="form-bottom">
+                    <button id="generate-btn">generate &rarr;</button>
+                    <div class="toggle-group">
+                        <button class="toggle-btn active" data-tone="casual">Casual</button>
+                        <button class="toggle-btn" data-tone="professional">Pro</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider">
+                <span class="divider-text">5 ideas, freshly made</span>
+            </div>
+
+            <div id="results-container">
+                <!-- Idea cards will be injected here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Template for idea cards -->
+    <template id="idea-card-template">
+        <div class="card idea-card">
+            <div class="tape-strip"></div>
+            <div class="idea-header">
+                <span class="format-badge"></span>
+                <div class="idea-actions">
+                    <button class="action-btn copy-btn">copy</button>
+                    <button class="action-btn redo-btn">redo</button>
+                </div>
+            </div>
+            
+            <div class="idea-content">
+                <div class="section-label">hook &mdash;</div>
+                <div class="hook-text"></div>
+                
+                <div class="section-label">caption &mdash;</div>
+                <div class="caption-text"></div>
+                
+                <div class="section-label">hashtags &mdash;</div>
+                <div class="hashtags-text"></div>
+            </div>
+            <div class="loading-overlay" style="display: none;">
+                cooking...
+            </div>
+        </div>
+    </template>
+
+    <footer class="site-footer">crafted by Anannya</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
